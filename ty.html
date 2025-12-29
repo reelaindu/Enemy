@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You - ITK OFFICIAL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255,255,255,0.05);
+      padding: 50px 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      animation: pop 0.6s ease forwards;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    button {
+      padding: 12px 30px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #2575fc;
+      background: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background: #e0e0e0;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Animated confetti effect */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      top: -10px;
+      opacity: 0.7;
+      animation: drop 3s linear infinite;
+    }
+
+    @keyframes drop {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Thank You!</h1>
+    <p>Your submission has been received successfully.<br>We will get back to you shortly.</p>
+    <button onclick="goBack()">Go Back</button>
+  </div>
+
+  <script>
+    // Back button functionality
+    function goBack() {
+      window.history.back();
+    }
+
+    // Generate confetti
+    const colors = ['#FFD700','#FF6347','#1E90FF','#32CD32','#FF69B4'];
+    for(let i=0; i<50; i++) {
+      let confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.left = Math.random() * window.innerWidth + 'px';
+      confetti.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+      confetti.style.width = confetti.style.height = (Math.random()*10+5) + 'px';
+      confetti.style.animationDuration = (Math.random()*3+2)+'s';
+      document.body.appendChild(confetti);
+    }
+  </script>
+
+</body>
+</html>

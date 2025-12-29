@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I-T-K </title>
+  <link rel="stylesheet" href="style1.css">
+  <link rel="icon" href="23.png">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+</head>
+
+<body>
+  <heaader class="header">
+    <a href="#home" class="logo">Mr. <span>ITK,</span></a>
+
+    <i class="bx bx-menu" id="menu-icon"></i>
+
+    <nav class="navbar">
+      <a href="#home">Home</a>
+      <a href="#education">Education</a>
+      <a href="#services">Services</a>
+      <a href="#websites">Brokers</a>
+      
+      <a href="#contact">Contact</a>
+    </nav>
+  </heaader>
+
+  <section class="home" id="home">
+    <div class="home-content">
+      <h1>Hi, I'm <span>Induwara Thathsara.</span></h1>
+      <h3 class="text-animation">I'm a <span></span></h3>
+      <p>
+        Induwara is a talented professional with a diverse skill set. As a UI Designer, he creates intuitive, visually
+        appealing user interfaces that enhance the overall user experience. In Web Design, he combines aesthetics with
+        functionality to deliver responsive websites. As a Forex Trader, Induwara analyzes market trends and executes
+        strategic trades for profit. His expertise in Chart Analysis helps him interpret price movements accurately.
+        Furthermore, as a Web Developer, he builds scalable and efficient websites and web applications. With his
+        technical skills and creative flair, Induwara excels in providing innovative solutions across various domains.
+      </p>
+
+      <div class="social-icons">
+        <a href="https://www.facebook.com/induwarathathsarakumarathunga"><i class='bx bxl-facebook-circle'></i></a>
+        <a href="https://www.instagram.com/thathsara.i?igsh=MWppaWJ1NWJhaWJ3dg==" target="_blank"><i
+            class="bx bxl-instagram-alt"></i></a>
+      </div>
+
+      <div class="btn-group">
+        <a href="mailto:induwara633@gmail.com" target="_blank" class="btn">Hire Me</a>
+        <a href="#contact" class="btn">Contact.</a>
+      </div>
+    </div>
+
+    
+  </section>
+
+  <section class="education" id="education">
+    <h2 class="heading">Education.</h2>
+    <div class="timeline-items">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2022 (2023)</div>
+        <div class="timeline-content">
+          <h3>Secondary Education.</h3>
+          <p>
+            Siddhartha College Dikkumbura.<br>
+            G.C.E (Ordinary Level) Examination with ICT.<br>
+            <b>Three "A" passes and Six "B" passes</b>
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date"> 2024 (2025)</div>
+        <div class="timeline-content">
+          <h3>Advanced Level Education.</h3>
+          <p>
+            Siddhartha College Dikkumbura.<br>
+            G.C.E (Advance Level) Examination Physical Science Stream.<br>
+            <b>I am looking For this Year. </b>
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2024/2025 </div>
+        <div class="timeline-content">
+          <h3>Foundation.</h3>
+          <p>
+            EXTRAORDINARY THINKERS (PVT) LTD. <br>
+            Dark Web Analyst Education.<br>
+            <b>With Certificate. </b>
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2026 - Present.</div>
+        <div class="timeline-content">
+          <h3>Forex Trading. </h3>
+          <p>I am Foex Trading For Side Income.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <h2 class="heading">Services.</h2>
+    <div class="services-container">
+      <div class="service-box">
+        <div class="service-info">
+          <h4>Analysing</h4>
+          <p><a href="https://www.tradingview.com">TradingView</a> is one of the world’s most popular charting and
+            analysis platforms used by traders and investors across all markets—stocks, forex, crypto, and more. It
+            offers powerful charting tools, real-time data, and a wide variety of technical indicators that make market
+            analysis simple and efficient. As a web-based platform</p>
+        </div>
+      </div>
+
+      <div class="service-box">
+        <div class="service-info">
+          <h4>Eco.Calendar</h4>
+          <p>The Myfxbook <a href="https://www.myfxbook.com/forex-economic-calendar">Economic Calendar</a> is a powerful
+            tool used by forex traders to stay updated on key financial events and data releases that may impact the
+            market. It provides detailed information such as event time, currency affected, previous data, forecast, and
+            actual results. Traders use this calendar to plan trades, manage risk, and anticipate market volatility. </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="websites" id="websites">
+    <div class="websites-box">
+      <h2 class="heading">MY Affiliate Forex Brokers & Prop Firms. </h2>
+      <div class="websites-wrapper" id="websitesList"></div>
+    </div>
+  </section>
+
+  <script>
+    const websites = [
+      { name: "Neex", img: "cp.png", url: "neex.com" },
+      { name: "Exness", img: "12.png", url: "https://one.exnesstrack.org/a/poyq9fvexm" },
+      { name: "Just Markets", img: "14.png", url: "https://one.justmarkets.link/a/9sku90wzhe" },
+      { name: "5ers", img: "11.png", url: "http://www.the5ers.com/?afmc=az2" },
+      { name: "QT Funded", img: "13.png", url: "https://qtfunded.quanttekel.com/ref/4215/" },
+      { name: "Funding Pips", img: "17.png", url: "https://app.fundingpips.com/register?ref=C73C4DC0" },
+      { name: "Alpha Futures", img: "20.png", url: "https://app.alpha-futures.com/signup/Wijerama_Panthi_Arachchige008409/" },
+    ];
+
+    document.getElementById("websitesList").innerHTML = websites
+      .map(website => `
+          <div class="website-item">
+            <a href="${website.url}" target="_blank">
+              <img src="${website.img}" alt="${website.name}" />
+              <h2>${website.name}</h2>
+            </a>
+          </div>
+        `)
+      .join("");
+  </script>
+
+  <!-- ✅ Updated Contact Form -->
+  <section class="contact" id="contact">
+    <h2 class="heading">Contact <span>Me.</span></h2>
+
+    <form action="https://formsubmit.co/induwara633@gmail.com" method="POST">
+      <!-- Hidden settings -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value=" https://itkofficial7716.github.io/.../thankyou.html">
+        <input type="hidden" name="_subject" value="New Message from FX Portfolio">
+
+      <div class="input-group">
+        <div class="input-box">
+          <input type="text" name="name" placeholder="Full Name" required>
+          <input type="email" name="email" placeholder="Enter Your Email" required>
+        </div>
+        <div class="input-box">
+          <input type="text" name="whatsapp" placeholder="Whatsapp Number">
+        </div>
+      </div>
+
+      <div class="input-group-2">
+        <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+        <input type="submit" value="Send Message" class="btn">
+      </div>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <div class="social">
+      <a href="https://api.whatsapp.com/send/?phone=94764247716&text&type=phone_number&app_absent=0" target="_blank"><i
+          class="bx bxl-whatsapp"></i></a>
+      <a href="https://www.facebook.com/induwarathathsarakumarathunga" target="_blank"><i
+          class="bx bxl-facebook"></i></a>
+      <a href="https://www.instagram.com/thathsara.i?igsh=MWppaWJ1NWJhaWJ3dg==" target="_blank"><i
+          class="bx bxl-instagram-alt"></i></a>
+      <a href="https://www.tiktok.com/@xau.itk" target="_blank"><i class="bx bxl-tiktok"></i></a>
+    </div>
+
+    <ul class="list">
+      <li><a href="#">FAQ.</a></li>
+      <li><a href="#">About Me.</a></li>
+      <li><a href="#contact">Contact.</a></li>
+    </ul>
+
+    <p class="copyright">©
+      <script>document.write(new Date().getFullYear());</script> Induwara Thathsara | All Right Reserved @ITK 2025.
+    </p>
+    <script src="script.js"></script>
+  </footer>
+</body>
+</html>

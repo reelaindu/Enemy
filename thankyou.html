@@ -1,0 +1,200 @@
+<!-- thankyou.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You!</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at center, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-align: center;
+    text-shadow: 0 0 10px #ffd700, 0 0 20px #ffcb05, 0 0 30px #fff;
+    animation: fadeIn 2s ease forwards;
+  }
+
+  p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 2s ease 1s forwards;
+  }
+
+  .back-btn {
+    background-color: #ffcb05;
+    color: #000;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    animation: fadeIn 2s ease 2s forwards;
+    text-shadow: 0 0 5px #000;
+  }
+
+  .back-btn:hover {
+    transform: scale(1.1);
+    background-color: #ffd84d;
+    box-shadow: 0 0 20px #ffd700, 0 0 30px #fff;
+  }
+
+  @keyframes fadeIn { to { opacity: 1; } }
+
+  .coin, .confetti {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 5;
+  }
+
+  .coin {
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle at 30% 30%, #ffd700, #ffcb05);
+    box-shadow: 0 0 10px rgba(255,223,0,0.7);
+    top: -50px;
+    animation: floatDown linear infinite;
+  }
+
+  @keyframes floatDown {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+  }
+
+  .confetti {
+    width: 10px;
+    height: 4px;
+    background-color: #ff0080;
+    animation: confettiFall linear infinite;
+    opacity: 0.9;
+  }
+
+  @keyframes confettiFall {
+    0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+  }
+
+  #chart {
+    position: absolute;
+    bottom: 20px;
+    width: 90%;
+    max-width: 600px;
+    height: 200px;
+    z-index: 5;
+    filter: drop-shadow(0 0 10px #0f0);
+  }
+</style>
+</head>
+<body>
+
+<h1>Thank You,I will Respond Quickly!</h1>
+<p>Your Forex trading journey is taking off! Have A Nice DAY 💰✨</p>
+<button class="back-btn" onclick="goBack()">← Back</button>
+
+<canvas id="chart"></canvas>
+
+<script>
+  // Back button
+  function goBack(){ window.history.back(); }
+
+  // Floating coins
+  function createCoin() {
+    const coin = document.createElement('div');
+    coin.classList.add('coin');
+    coin.style.left = Math.random() * 100 + 'vw';
+    let size = 20 + Math.random() * 30;
+    coin.style.width = size + 'px';
+    coin.style.height = size + 'px';
+    coin.style.animationDuration = 3 + Math.random() * 4 + 's';
+    document.body.appendChild(coin);
+    setTimeout(() => coin.remove(), 7000);
+  }
+  setInterval(createCoin, 200);
+
+  // Confetti
+  function createConfetti() {
+    const conf = document.createElement('div');
+    conf.classList.add('confetti');
+    conf.style.left = Math.random() * 100 + 'vw';
+    conf.style.backgroundColor = `hsl(${Math.random()*360}, 100%, 50%)`;
+    conf.style.width = 5 + Math.random()*10 + 'px';
+    conf.style.height = 2 + Math.random()*6 + 'px';
+    conf.style.animationDuration = 3 + Math.random()*3 + 's';
+    document.body.appendChild(conf);
+    setTimeout(() => conf.remove(), 6000);
+  }
+  setInterval(createConfetti, 100);
+
+  // Forex chart animation
+  const canvas = document.getElementById('chart');
+  const ctx = canvas.getContext('2d');
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+
+  const candleCount = 50;
+  let candles = Array.from({length: candleCount}, () => generateCandle());
+
+  function generateCandle() {
+    return {
+      open: Math.random() * 100 + 50,
+      close: Math.random() * 100 + 50,
+      high: Math.random() * 120 + 50,
+      low: Math.random() * 40 + 50,
+      color: Math.random() > 0.5 ? '#0f0' : '#f00'
+    };
+  }
+
+  function drawChart() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    const candleWidth = canvas.width / candleCount * 0.8;
+    const spacing = canvas.width / candleCount * 0.2;
+    candles.forEach((c,i)=>{
+      const x = i*(candleWidth+spacing);
+      const yHigh = canvas.height - c.high;
+      const yLow = canvas.height - c.low;
+      const yOpen = canvas.height - c.open;
+      const yClose = canvas.height - c.close;
+
+      // Wick
+      ctx.strokeStyle = c.color;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(x+candleWidth/2, yHigh);
+      ctx.lineTo(x+candleWidth/2, yLow);
+      ctx.stroke();
+
+      // Body
+      ctx.fillStyle = c.color;
+      ctx.fillRect(x, Math.min(yOpen,yClose), candleWidth, Math.abs(yOpen-yClose));
+    });
+  }
+
+  function updateCandles() {
+    candles.shift();
+    candles.push(generateCandle());
+    drawChart();
+  }
+
+  drawChart();
+  setInterval(updateCandles, 500);
+</script>
+
+</body>
+</html>
